@@ -1,0 +1,23 @@
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    display: block;
+    clear: both;
+    height: 1px;
+    margin-top: -1px;
+    visibility: hidden;
+  }
+  & {
+    *zoom: 1;
+  }
+}
+
+@mixin link-hover() {
+  &:hover {
+    color: $color-light;
+  }
+}

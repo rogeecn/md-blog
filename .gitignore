@@ -1,0 +1,8 @@
+.idea
+composer.lock
+vendor/*
+/yii
+/yii.bat
+/yii_test
+/yii_test.bat
+.sass-cache
