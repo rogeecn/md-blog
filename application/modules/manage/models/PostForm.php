@@ -84,9 +84,13 @@ class PostForm extends Model
     public function attributeLabels()
     {
         return [
-            'tag'   => '标签',
-            'title' => '标题',
-            'slug'  => '别名',
+            'tag'     => '标签',
+            'title'   => '标题',
+            'slug'    => '别名',
+            'content' => '文章内容',
+            'status'  => '状态',
+            'type'    => '类型',
+            'layout'  => '模板',
         ];
     }
 
