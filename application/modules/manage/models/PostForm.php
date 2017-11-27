@@ -10,19 +10,21 @@ use yii\web\NotFoundHttpException;
 
 class PostForm extends Model
 {
+    const CONTENT_SEPARATOR = "[========]";
+
     public $tag;
     public $title;
-    public $type;
     public $slug;
-    public $status = 0;
     public $content;
     public $layout;
+    public $status = 0;
+    public $type   = 0;
 
     /** @var  Post */
     private $postModel;
     private $_id;
 
-    public function __construct($id = NULL)
+    public function __construct($id = null)
     {
         $this->_id = $id;
         if ($this->isNewRecord()) {
@@ -97,7 +99,17 @@ class PostForm extends Model
 
     protected function getContentDescription()
     {
-        return "desc";
+        $pos = strpos($this->content, self::CONTENT_SEPARATOR);
+        if (false === $pos) {
+            return "";
+        }
+
+        return substr($this->content, 0, $pos);
+    }
+
+    public function getId()
+    {
+        return $this->postModel->primaryKey;
     }
 
     public function save()
@@ -149,8 +161,10 @@ class PostForm extends Model
         } catch (\Exception $e) {
             $trans->rollBack();
 
-            return FALSE;
+            return false;
         }
+
+        return true;
     }
 
     public function initFormData()

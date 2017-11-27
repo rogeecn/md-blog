@@ -11,7 +11,7 @@ class CreateController extends AuthController
     {
         $model = new PostForm();
         if (Request::isPost() && $model->load(Request::input()) && $model->save()) {
-            return $this->redirect("/result/success");
+            return $this->redirect(["/manage/post/edit", 'id' => $model->getId()]);
         }
 
         return $this->render("index", [

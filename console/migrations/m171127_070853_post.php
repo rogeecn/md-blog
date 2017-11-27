@@ -10,8 +10,8 @@ class m171127_070853_post extends Migration
     {
         $this->createTable($this->_table, [
             'id'          => $this->primaryKey(),
-            'title'       => $this->string()->notNull()->unique(),
-            'slug'        => $this->string()->notNull()->defaultValue(""),
+            'title'       => $this->string()->notNull(),
+            'slug'        => $this->string()->notNull()->unique()->defaultValue(""),
             'description' => $this->text(),
             'author'      => $this->integer()->notNull(),
             'layout'      => $this->string()->notNull(),

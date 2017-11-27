@@ -1,26 +1,26 @@
 <?php
 \yii\bootstrap\NavBar::begin([
-    'brandLabel' => \common\utils\Param::Get("site.title"),
-    'brandUrl'   => Yii::$app->homeUrl,
+    'brandLabel' => $this->title,
+    'brandUrl'   => false,
     'options'    => [
-        'class' => 'navbar navbar-static-top bs-nav',
+        'class' => 'navbar navbar-default navbar-static-top',
     ],
 ]);
 
-$leftMenus = [
+$rightMenus = [
     ['label' => '首页', 'url' => ['/']],
 ];
 
 if (\common\utils\UserSession::isGuest()) {
-    $rightMenus[] = ['label' => '登录', 'url' => ['/ucenter/login']];
+    $rightMenus[] = ['label' => '登录', 'url' => ['/manage/login']];
 } else {
-    $rightMenus[] = ['label' => '退出登录', 'url' => ['/ucenter/logout']];
+    $rightMenus[] = ['label' => '退出管理', 'url' => ['/manage/logout']];
 }
 
-echo \yii\bootstrap\Nav::widget([
-    'options' => ['class' => 'navbar-nav'],
-    'items'   => $leftMenus,
-]);
+//echo \yii\bootstrap\Nav::widget([
+//    'options' => ['class' => 'navbar-nav'],
+//    'items'   => $leftMenus,
+//]);
 
 echo \yii\bootstrap\Nav::widget([
     'options' => ['class' => 'navbar-nav navbar-right'],
