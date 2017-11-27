@@ -56,7 +56,7 @@ $form = \yii\bootstrap\ActiveForm::begin();
         // 'dialogMaskBgColor' => '#000', // 设置透明遮罩层的背景颜色，全局通用，默认为#fff
         'imageUpload'          => true,
         'imageFormats'         => ['jpg', 'jpeg', 'gif', 'png', 'bmp', 'webp'],
-        'imageUploadURL'       => '/file/blog-upload?type=default&filekey=editormd-image-file',
+        'imageUploadURL'       => '/manage/post/image/upload?type=default&filekey=editormd-image-file',
         'toolbarIcons'         => [
             "h2",
             "h3",

@@ -6,5 +6,7 @@ return [
         'description' => '北京爱泡云科技有限公司官网',
         'icp_number' => '京ICP备17015641号-1',
     ],
-
+    'oss'  => [
+        'is_internal' => false,
+    ],
 ];

@@ -1,5 +1,7 @@
 <?php
-$params = array_merge(
+use yii\helpers\ArrayHelper;
+
+$params = ArrayHelper::merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
     require(__DIR__ . '/params.php'),
@@ -22,7 +24,7 @@ return [
         ],
         'user'         => [
             'identityClass'   => 'common\models\User',
-            'enableAutoLogin' => TRUE,
+            'enableAutoLogin' => true,
             'loginUrl'        => [
                 'manage/login',
             ],
@@ -43,8 +45,8 @@ return [
             'errorAction' => 'site/error',
         ],
         'urlManager'   => [
-            'enablePrettyUrl' => TRUE,
-            'showScriptName'  => FALSE,
+            'enablePrettyUrl' => true,
+            'showScriptName'  => false,
             'rules'           => [
             ],
         ],
