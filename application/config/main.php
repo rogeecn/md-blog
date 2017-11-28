@@ -15,7 +15,7 @@ return [
     'defaultRoute'        => 'index',
     'controllerNamespace' => 'application\controllers',
     'aliases'             => [
-        'rogeecn/TagEditor' => "@console/runtime/tmp-extensions/yii2-tag-editor/src",
+        'rogeecn/TagEditor' => "@console/tmp-extensions/yii2-tag-editor/src",
     ],
     'modules'             => [
         'manage' => [
