@@ -7,7 +7,8 @@
     "yiisoft/yii2": "~2.0.6",
     "yiisoft/yii2-bootstrap": "~2.0.0",
     "johnlui/aliyun-oss": "~2.0",
-    "yiier/yii2-editor.md": "^0.2.0"
+    "yiier/yii2-editor.md": "^0.2.0",
+    "rogeecn/yii2-tag-editor": "~1.0.1"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.0.0",

@@ -13,7 +13,7 @@ use yii\helpers\ArrayHelper;
  */
 class Tag extends \common\base\ActiveRecord
 {
-    protected $enableTimeBehavior = FALSE;
+    protected $enableTimeBehavior = false;
 
     /**
      * @inheritdoc
@@ -71,7 +71,7 @@ class Tag extends \common\base\ActiveRecord
     public static function addTagRef($tagIDs)
     {
         if (empty($tagIDs)) {
-            return TRUE;
+            return true;
         }
 
         $sql = sprintf('update %s set ref_count = ref_count+1 where id in (%s)', self::tableName(), implode(",", $tagIDs));
@@ -82,7 +82,7 @@ class Tag extends \common\base\ActiveRecord
     public static function descTagRef($tagIDs)
     {
         if (empty($tagIDs)) {
-            return TRUE;
+            return true;
         }
 
         $sql = sprintf('update %s set ref_count = ref_count-1 where id in (%s)', self::tableName(), implode(",", $tagIDs));
@@ -105,7 +105,7 @@ class Tag extends \common\base\ActiveRecord
         return $result;
     }
 
-    public function totalCount()
+    public static function totalCount()
     {
         return self::find()->count();
     }

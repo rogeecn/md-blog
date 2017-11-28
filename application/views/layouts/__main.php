@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 
+/** @var string $content */
 ?>
 <div class="container">
     <div class="row">
@@ -8,7 +9,7 @@ use yii\helpers\Html;
             <div id="profile">
                 <div class="panel panel-default text-center">
                     <div class="panel-body">
-                        <img id="avatar" src="/images/avatar.jpg">
+                        <?= Html::img("/images/avatar.jpg", ['id' => 'avatar']) ?>
                     </div>
                     <div class="panel-body">
                         <h2 id="name">Rogee</h2>

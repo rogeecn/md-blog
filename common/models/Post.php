@@ -6,7 +6,6 @@ use cebe\markdown\GithubMarkdown;
 use common\utils\UserSession;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-use yii\helpers\Url;
 
 /**
  * This is the model class for table "post".
@@ -119,7 +118,7 @@ class Post extends \common\base\ActiveRecord
         return $parser->parse($content);
     }
 
-    public function totalCount()
+    public static function totalCount()
     {
         return self::find()->count();
     }
