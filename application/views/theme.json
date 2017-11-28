@@ -1,0 +1,13 @@
+{
+  "name": "default",
+  "templates": [
+    {
+      "name": "默认模板",
+      "file": "default"
+    },
+    {
+      "name": "关于",
+      "file": "about"
+    }
+  ]
+}

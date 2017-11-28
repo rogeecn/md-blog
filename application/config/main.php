@@ -49,6 +49,10 @@ return [
             'enablePrettyUrl' => TRUE,
             'showScriptName'  => FALSE,
             'rules'           => [
+                '/page/<page:\d+>'                                           => 'index/index',
+                '/<pid:[a-z|0-9|\-]+>'                                       => 'page/index',
+                '/<year:\d{4}>/<month:\d{2}>/<day:\d{2}>/<id:[a-z|0-9|\-]+>' => 'page/index',
+                '/tag/<id:.+?>'                                              => 'tag-list/index',
             ],
         ],
         'formatter'    => [

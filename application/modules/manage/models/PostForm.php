@@ -6,6 +6,7 @@ use common\models\Post;
 use common\models\PostTag;
 use yii\base\Exception;
 use yii\base\Model;
+use yii\helpers\ArrayHelper;
 use yii\web\NotFoundHttpException;
 
 class PostForm extends Model
@@ -49,7 +50,7 @@ class PostForm extends Model
     public function rules()
     {
         return [
-            [['tag', 'title', 'slug', 'status', 'content', 'type', 'layout'], 'required'],
+            [['tag', 'title', 'status', 'content', 'type', 'layout'], 'required'],
             [['title', 'slug', 'content', 'layout'], 'string'],
             [['title', 'slug'], 'trim'],
             [['slug'], 'unique'],
@@ -71,11 +72,17 @@ class PostForm extends Model
 
     public function layoutList()
     {
-        $list = [
-            'default',
-        ];
+        $configFile = \Yii::getAlias("@application/views/theme.json");
+        if (!is_file($configFile)) {
+            return [
+                'default' => 'default',
+            ];
+        }
+        $configContent = file_get_contents($configFile);
+        $config        = json_decode($configContent, TRUE);
+        $templates = ArrayHelper::map($config['templates'], "file", "name");
 
-        return array_combine($list, $list);
+        return $templates;
     }
 
     public function typeList()
@@ -173,7 +180,7 @@ class PostForm extends Model
             ":" => "",
         ]);
         $tag = explode(",", $tag);
-        $tag = array_filter($tag);
+        $tag = array_unique(array_filter($tag));
 
         return $tag;
     }

@@ -65,7 +65,6 @@ $editorOptions = [
 ];
 ?>
 <style>
-
     .editormd-fullscreen {
         z-index: 9999999;
     }

@@ -1,38 +1,46 @@
+<?php
+use yii\helpers\Html;
+
+?>
 <div class="container">
     <div class="row">
         <div class="col-md-3">
             <div id="profile">
                 <div class="panel panel-default text-center">
                     <div class="panel-body">
-                        <img id="avatar" src="http://blog.zhangruipeng.me/hexo-theme-icarus/css/images/avatar.png">
+                        <img id="avatar" src="/images/avatar.jpg">
                     </div>
                     <div class="panel-body">
-                        <h2 id="name">PPOffice</h2>
+                        <h2 id="name">Rogee</h2>
                         <h3 id="title">Web Developer &amp; Designer</h3>
                     </div>
                     <div class="panel-body" id="follow">
-                        <a href="/" class="btn btn-info">FOLLOW ME</a>
+                        <?= Html::a("FOLLOW", "https://github.com/rogeecn", [
+                            'class'  => 'btn btn-info',
+                            'style'  => 'border-radius: 34px',
+                            'target' => '_blank',
+                        ]) ?>
                     </div>
                     <table class="table table-bordered" id="post-info">
                         <tr>
                             <td>
-                                13
-                                <span>POST</span>
+                                <?= \common\models\Post::totalCount() ?>
+                                <span>POSTS</span>
                             </td>
                             <td>
-                                13
-                                <span>TAG</span>
+                                <?= \common\models\Tag::totalCount() ?>
+                                <span>TAGS</span>
                             </td>
                         </tr>
                     </table>
-                    <table class="table" id="sns-info">
-                        <tr>
-                            <td><a href="#"><span class="glyphicon glyphicon-apple"></span></a></td>
-                            <td><a href="#"><span class="glyphicon glyphicon-apple"></span></a></td>
-                            <td><a href="#"><span class="glyphicon glyphicon-apple"></span></a></td>
-                            <td><a href="#"><span class="glyphicon glyphicon-apple"></span></a></td>
-                        </tr>
-                    </table>
+                    <!--                    <table class="table" id="sns-info">-->
+                    <!--                        <tr>-->
+                    <!--                            <td><a href="#"><span class="glyphicon glyphicon-apple"></span></a></td>-->
+                    <!--                            <td><a href="#"><span class="glyphicon glyphicon-apple"></span></a></td>-->
+                    <!--                            <td><a href="#"><span class="glyphicon glyphicon-apple"></span></a></td>-->
+                    <!--                            <td><a href="#"><span class="glyphicon glyphicon-apple"></span></a></td>-->
+                    <!--                        </tr>-->
+                    <!--                    </table>-->
                 </div>
             </div>
         </div>

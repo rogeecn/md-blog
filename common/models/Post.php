@@ -3,7 +3,9 @@
 namespace common\models;
 
 use cebe\markdown\GithubMarkdown;
+use common\utils\UserSession;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
 
 /**
  * This is the model class for table "post".
@@ -21,6 +23,13 @@ use yii\helpers\ArrayHelper;
  */
 class Post extends \common\base\ActiveRecord
 {
+    const STATUS_NORMAL = 0;
+    const STATUS_DRAFT  = 1;
+    const STATUS_REMOVE = 2;
+
+    const TYPE_ARTICLE = 0;
+    const TYPE_PAGE    = 1;
+
     public static function tableName()
     {
         return 'post';
@@ -53,6 +62,23 @@ class Post extends \common\base\ActiveRecord
         ];
     }
 
+    public function beforeSave($insert)
+    {
+        if (empty($this->slug)) {
+            $this->slug = $this->generateRandomString(16);
+        }
+
+        return parent::beforeSave($insert);
+    }
+
+    public function generateRandomString($length)
+    {
+        $chars        = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        $shuffleChars = str_shuffle($chars);
+
+        return substr($shuffleChars, 0, $length);
+    }
+
     public function getContent()
     {
         return $this->hasOne(Content::className(), ['post_id' => 'id']);
@@ -75,10 +101,50 @@ class Post extends \common\base\ActiveRecord
         return $tagNames;
     }
 
-    public function descriptionHtml()
+    public function renderDescription()
     {
         $parser = new GithubMarkdown();
 
         return $parser->parse($this->description);
+    }
+
+    public function renderContent()
+    {
+        $content = $this->content->content;
+        $parser  = new GithubMarkdown();
+
+        $content = str_replace("[========]", "", $content);
+
+        return $parser->parse($content);
+    }
+
+    public function totalCount()
+    {
+        return self::find()->count();
+    }
+
+    public function renderTitle()
+    {
+        $defaultTitle = Html::encode($this->title);
+        if (UserSession::isGuest()) {
+            return $defaultTitle;
+        }
+
+        $title = "";
+        if ($this->author == UserSession::getId()) {
+            switch ($this->status) {
+                case self::STATUS_REMOVE:
+                    $prefix = "[删除] ";
+                    break;
+                case self::STATUS_DRAFT:
+                    $prefix = "[草稿] ";
+                    break;
+                default:
+                    $prefix = "";
+            }
+            $title = $prefix . $defaultTitle;
+        }
+
+        return $title;
     }
 }

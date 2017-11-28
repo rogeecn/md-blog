@@ -9,6 +9,8 @@
 
 $leftMenus = [
     ['label' => '首页', 'url' => ['/']],
+    ['label' => '标签', 'url' => ['/tag']],
+    ['label' => 'About', 'url' => ['/page/index', 'pid' => 'about-me']],
 ];
 
 if (\common\utils\UserSession::isGuest()) {

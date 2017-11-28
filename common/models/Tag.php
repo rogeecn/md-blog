@@ -104,4 +104,9 @@ class Tag extends \common\base\ActiveRecord
 
         return $result;
     }
+
+    public function totalCount()
+    {
+        return self::find()->count();
+    }
 }
