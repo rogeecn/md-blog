@@ -1,0 +1,48 @@
+#profile {
+  .panel {
+    border: none;
+    padding-bottom: 15px;
+  }
+
+  .panel-body {
+    padding-bottom: 0;
+  }
+
+  #name {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  #title {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  #follow {
+    padding: 25px 15px;
+  }
+
+  #post-info {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+
+    td {
+      font-size: 24px;
+      span {
+        font-size: 14px;
+        display: block;
+      }
+    }
+  }
+
+  #sns-info {
+    font-size: 28px;
+    a {
+      color: #333333;
+      &:hover {
+        color: #38b7ea;
+      }
+    }
+  }
+}

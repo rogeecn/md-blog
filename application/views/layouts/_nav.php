@@ -3,7 +3,7 @@
     'brandLabel' => \common\utils\Param::Get("site.title"),
     'brandUrl'   => Yii::$app->homeUrl,
     'options'    => [
-        'class' => 'navbar navbar-static-top bs-nav',
+        'class' => 'navbar navbar-static-top theme-nav',
     ],
 ]);
 
