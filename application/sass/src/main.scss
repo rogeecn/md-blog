@@ -13,6 +13,18 @@
       padding-top: 0;
     }
 
+    .badge {
+      border: 1px solid gray;
+      color: gray;
+      background: transparent;
+      font-weight: normal;
+
+      &:hover {
+        border-color: #38b7ea;
+        color: #38b7ea;
+      }
+    }
+
     .article-title {
       display: block;
       margin-bottom: 14px;

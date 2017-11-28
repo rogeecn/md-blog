@@ -12,9 +12,10 @@ $leftMenus = [
 ];
 
 if (\common\utils\UserSession::isGuest()) {
-    $rightMenus[] = ['label' => '登录', 'url' => ['/ucenter/login']];
+    $rightMenus[] = ['label' => '登录', 'url' => ['/manage/login']];
 } else {
-    $rightMenus[] = ['label' => '退出登录', 'url' => ['/ucenter/logout']];
+    $rightMenus[] = ['label' => '发表', 'url' => ['/manage/post/create']];
+    $rightMenus[] = ['label' => '退出', 'url' => ['/manage/logout']];
 }
 
 echo \yii\bootstrap\Nav::widget([
