@@ -15,8 +15,8 @@
   ],
   "require": {
     "yiisoft/yii2": "*",
-    "bower-asset/jquery-tag-editor": "*",
-    "bower-asset/jquery-ui": "*"
+    "yiisoft/yii2-jui": "~2.0.0",
+    "bower-asset/jquery-tag-editor": "*"
   },
   "autoload": {
     "psr-4": {
