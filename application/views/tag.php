@@ -2,6 +2,7 @@
 /* @var $this yii\web\View */
 /* @var $dataProvider \yii\data\ActiveDataProvider */
 
+$this->title = "TAG";
 ?>
 
 <article class="panel panel-default tag-list">
@@ -12,8 +13,11 @@
         'itemOptions'  => [
             'tag' => 'span',
         ],
+        'options'      => [
+            'class' => 'panel-body',
+        ],
         'itemView'     => '_item_tag',
-        'layout'       => "<div class=\"panel-body\">{items}</div>\n<div class=\"panel-body\">{pager}</div>",
+        'layout'       => "{items}\n{pager}",
         'dataProvider' => $dataProvider,
         'pager'        => [
             'class' => \common\extend\LinkPager::className(),

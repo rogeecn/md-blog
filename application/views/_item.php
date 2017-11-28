@@ -37,7 +37,7 @@ $articleUrl = [
 
     <div class="panel-body">
         <?php foreach ($model->getTagModel() as $tag): ?>
-            <?= Html::a($tag->name, ['/tag/list', 'id' => $tag->name], ['class' => 'badge']) ?>
+            <?= Html::a($tag->name, ['/tag-list/index', 'id' => $tag->name], ['class' => 'badge']) ?>
         <?php endforeach; ?>
 
 

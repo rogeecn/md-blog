@@ -5,7 +5,7 @@
 /* @var $message string */
 /* @var $exception Exception */
 
-$this->title = $name;
+$this->title = "出错了";
 ?>
 <div class="panel panel-default">
     <div class="panel-body">

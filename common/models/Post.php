@@ -6,6 +6,7 @@ use cebe\markdown\GithubMarkdown;
 use common\utils\UserSession;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /**
  * This is the model class for table "post".

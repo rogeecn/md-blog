@@ -32,6 +32,7 @@ class TagListController extends BaseController
 
         return $this->render([
             'dataProvider' => $dataProvider,
+            'tag'          => $tagName,
         ]);
     }
 

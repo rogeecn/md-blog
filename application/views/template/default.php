@@ -4,7 +4,8 @@ use yii\bootstrap\Html;
 /* @var $this yii\web\View */
 /* @var $model \common\models\Post */
 
-$articleUrl = ['/page/index', 'id' => $model->slug];
+$this->title = $model->title;
+$articleUrl  = ['/page/index', 'id' => $model->slug];
 ?>
 <article class="panel panel-default">
     <div class="panel-body post-title">
