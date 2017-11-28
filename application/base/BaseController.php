@@ -8,21 +8,6 @@ class BaseController extends Controller
 {
     public $layoutSnip = "main";
 
-    public function actions()
-    {
-        return [
-            'error'   => [
-                'class' => 'common\extend\ErrorAction',
-            ],
-            'captcha' => [
-                'class'           => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : NULL,
-                'height'          => 34,
-                'minLength'       => 4,
-                'maxLength'       => 4,
-            ],
-        ];
-    }
 
     public function goBack($defaultUrl = NULL)
     {

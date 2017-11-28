@@ -24,7 +24,7 @@ class PostForm extends Model
     private $postModel;
     private $_id;
 
-    public function __construct($id = null)
+    public function __construct($id = NULL)
     {
         $this->_id = $id;
         if ($this->isNewRecord()) {
@@ -100,7 +100,7 @@ class PostForm extends Model
     protected function getContentDescription()
     {
         $pos = strpos($this->content, self::CONTENT_SEPARATOR);
-        if (false === $pos) {
+        if (FALSE === $pos) {
             return "";
         }
 
@@ -153,18 +153,29 @@ class PostForm extends Model
                 throw new Exception("save content fail");
             }
 
-            $tag = explode(",", $this->tag);
-            $tag = array_filter($tag);
-            PostTag::savePostTags($this->postModel->primaryKey, $tag);
+            PostTag::savePostTags($this->postModel->primaryKey, $this->getTagArray());
 
             $trans->commit();
         } catch (\Exception $e) {
             $trans->rollBack();
 
-            return false;
+            return FALSE;
         }
 
-        return true;
+        return TRUE;
+    }
+
+    protected function getTagArray()
+    {
+        $tag = strtr($this->tag, [
+            "，" => ",",
+            " " => "",
+            ":" => "",
+        ]);
+        $tag = explode(",", $tag);
+        $tag = array_filter($tag);
+
+        return $tag;
     }
 
     public function initFormData()

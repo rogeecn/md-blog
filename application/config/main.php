@@ -12,6 +12,7 @@ return [
     'id'                  => 'blog',
     'basePath'            => dirname(__DIR__),
     'bootstrap'           => ['log'],
+    'defaultRoute'        => 'index',
     'controllerNamespace' => 'application\controllers',
     'modules'             => [
         'manage' => [
@@ -24,7 +25,7 @@ return [
         ],
         'user'         => [
             'identityClass'   => 'common\models\User',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => TRUE,
             'loginUrl'        => [
                 'manage/login',
             ],
@@ -42,11 +43,11 @@ return [
             ],
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => '/error/index',
         ],
         'urlManager'   => [
-            'enablePrettyUrl' => true,
-            'showScriptName'  => false,
+            'enablePrettyUrl' => TRUE,
+            'showScriptName'  => FALSE,
             'rules'           => [
             ],
         ],

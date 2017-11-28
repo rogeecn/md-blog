@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use cebe\markdown\GithubMarkdown;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -59,11 +60,25 @@ class Post extends \common\base\ActiveRecord
 
     public function getTags()
     {
+
+        $tagNames = $this->getTagModel();
+        $names    = ArrayHelper::getColumn($tagNames, "name");
+
+        return implode(",", $names);
+    }
+
+    public function getTagModel()
+    {
         $tagIDs   = PostTag::getCurrentTags($this->primaryKey);
         $tagNames = Tag::find()->where(['id' => $tagIDs])->all();
 
-        $names = ArrayHelper::getColumn($tagNames, "name");
+        return $tagNames;
+    }
 
-        return implode(",", $names);
+    public function descriptionHtml()
+    {
+        $parser = new GithubMarkdown();
+
+        return $parser->parse($this->description);
     }
 }
