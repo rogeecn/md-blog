@@ -72,7 +72,7 @@ $editorOptions = [
 <?php
 $form = \yii\bootstrap\ActiveForm::begin();
 ?>
-<?= $form->errorSummary($model); ?>
+<?php echo $form->errorSummary($model); ?>
 
 <div class="row">
     <div class="col-md-10">
@@ -86,17 +86,12 @@ $form = \yii\bootstrap\ActiveForm::begin();
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-12">
-                <?= $form->field($model, "tag") ?>
-            </div>
-        </div>
-
         <?= $form->field($model, "content")->widget(EditorMdWidget::className(), $editorOptions) ?>
     </div>
     <div class="col-md-2">
         <?= $form->field($model, "type")->radioList($model->typeList()) ?>
         <?= $form->field($model, "status")->radioList($model->statusList()) ?>
+        <?= $form->field($model, "tag")->widget(\rogeecn\TagEditor\EditorWidget::className()) ?>
         <?= $form->field($model, "layout")->dropDownList($model->layoutList()) ?>
         <?= \yii\bootstrap\Html::submitButton("提交", ['class' => 'btn btn-primary btn-block btn-lg']) ?>
     </div>

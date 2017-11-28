@@ -14,5 +14,6 @@ class ManageAssets extends AssetBundle
     ];
     public $depends  = [
         'yii\bootstrap\BootstrapAsset',
+        'rogeecn\TagEditor\EditorAsset',
     ];
 }

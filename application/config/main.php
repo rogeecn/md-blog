@@ -14,6 +14,9 @@ return [
     'bootstrap'           => ['log'],
     'defaultRoute'        => 'index',
     'controllerNamespace' => 'application\controllers',
+    'aliases'             => [
+        'rogeecn/TagEditor' => "@console/runtime/tmp-extensions/yii2-tag-editor/src",
+    ],
     'modules'             => [
         'manage' => [
             'class' => 'application\modules\manage\Module',
@@ -51,9 +54,9 @@ return [
             'rules'           => [
                 '/tag'                                                       => 'tag/index',
                 '/page/<page:\d+>'                                           => 'index/index',
-                '/<pid:[a-z|0-9|\-]+>'                                       => 'page/index',
                 '/<year:\d{4}>/<month:\d{2}>/<day:\d{2}>/<id:[a-z|0-9|\-]+>' => 'page/index',
                 '/tag/<id:.+?>'                                              => 'tag-list/index',
+                '/<pid:[a-z|0-9|\-]+>'                                       => 'page/index',
             ],
         ],
         'formatter'    => [
