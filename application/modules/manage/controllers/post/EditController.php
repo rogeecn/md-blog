@@ -13,8 +13,7 @@ class EditController extends AuthController
         $model = new PostForm($id);
 
         if (Request::isPost() && $model->load(Request::input()) && $model->save()) {
-            //return $this->redirect("/");
-            return $this->refresh();
+            return $this->redirect("/");
         }
 
         return $this->render("index", [
