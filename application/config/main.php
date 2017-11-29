@@ -67,7 +67,7 @@ return [
         ],
         'assetManager' => [
             'bundles' => [
-                'yii\web\JqueryAsset'             => [
+                'yii\web\JqueryAsset'                => [
                     'jsOptions' => [
                         'position' => \yii\web\View::POS_HEAD,
                     ],
@@ -75,7 +75,17 @@ return [
                         '//cdn.staticfile.org/jquery/3.2.1/jquery.min.js',
                     ],
                 ],
-                'plugins\FontAwesome\FontAwesome' => [
+                'yii\bootstrap\BootstrapAsset'       => [
+                    'css' => [
+                        '//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css',
+                    ],
+                ],
+                'yii\bootstrap\BootstrapPluginAsset' => [
+                    'js' => [
+                        '//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js',
+                    ],
+                ],
+                'plugins\FontAwesome\FontAwesome'    => [
                     'css' => [
                         '//cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css',
                     ],

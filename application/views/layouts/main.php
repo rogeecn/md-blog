@@ -24,6 +24,13 @@ AppAsset::register($this);
 <?php require sprintf("%s/%s.php", __DIR__, $snip); ?>
 <?= $this->render("_footer") ?>
 <?php $this->endBody() ?>
+<script>
+    $(function () {
+        $('pre code').each(function (i, block) {
+            hljs.highlightBlock(block);
+        });
+    })
+</script>
 </body>
 </html>
 <?php $this->endPage() ?>

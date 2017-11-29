@@ -1,12 +1,12 @@
 <?php
 return [
     'site' => [
-        'title'       => '爱泡云',
-        'keywords'    => '爱泡云公司官网,北京爱泡云科技有限公司',
-        'description' => '北京爱泡云科技有限公司官网',
-        'icp_number' => '京ICP备17015641号-1',
+        'title'       => 'HelloWorld!',
+        'keywords'    => 'Hello',
+        'description' => 'Hello',
+        'icp_number'  => 'ICP123123123',
     ],
     'oss'  => [
-        'is_internal' => false,
+        'is_internal' => FALSE,
     ],
 ];
