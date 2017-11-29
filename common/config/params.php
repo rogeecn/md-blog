@@ -1,12 +1,12 @@
 <?php
 return [
     'oss' => [
-        'domain'            => "http://oss.ipaoyun.com",
+        'domain'            => OSS_DOMAIN,
+        'access_key_id'     => OSS_KEY_ID,
+        'access_key_secret' => OSS_KEY_SECRET,
         'bucket'            => "rogee",
-        'is_internal'       => true,
         'city'              => '杭州',
         'network_type'      => '经典网络',
-        'access_key_id'     => 'LTAImYoo3TAwB8zv',
-        'access_key_secret' => 'MOajOX1iPOmyj3nGtvP9vctNyqX5Lh',
+        'is_internal'       => TRUE,
     ],
 ];
