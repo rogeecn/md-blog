@@ -99,7 +99,7 @@ class View extends \yii\web\View
                 case 'viewport':
                     $defaultOptions = [
                         'name'    => $tag,
-                        'content' => 'width=device-width,height=device-height,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,target-densitydpi=device-dpi',
+                        'content' => 'width=device-width,height=device-height,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1',
                     ];
                     break;
 
