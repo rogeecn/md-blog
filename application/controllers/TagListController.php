@@ -13,15 +13,15 @@ class TagListController extends BaseController
 {
     public function actionIndex()
     {
-        $tagName = Request::input("id");
-        $tagID   = Tag::find()->where(['name' => $tagName])->one();
-        if (!$tagID) {
+        $tagName    = Request::input("id");
+        $tagIDModel = Tag::find()->where(['name' => $tagName])->one();
+        if (!$tagIDModel) {
             throw new NotFoundHttpException("TAG 未找到, " . $tagName);
         }
 
         $page       = Request::input("page", 1);
         $postTags   = PostTag::find()
-                             ->where(['tag_id' => $tagID])
+                             ->where(['tag_id' => $tagIDModel->primaryKey])
                              ->limit($this->pageItemCount)
                              ->offset(($page - 1) * $this->pageItemCount)
                              ->all();
