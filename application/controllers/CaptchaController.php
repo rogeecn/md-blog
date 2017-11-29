@@ -2,6 +2,7 @@
 namespace application\controllers;
 
 use application\base\BaseController;
+use common\extend\CaptchaAction;
 
 class CaptchaController extends BaseController
 {
@@ -9,9 +10,9 @@ class CaptchaController extends BaseController
     {
         return [
             'index' => [
-                'class'           => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : NULL,
-                'height'          => 34,
+                'class'           => CaptchaAction::className(),
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+                'height'          => 24,
                 'minLength'       => 4,
                 'maxLength'       => 4,
             ],
