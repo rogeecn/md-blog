@@ -14,9 +14,6 @@ return [
     'bootstrap'           => ['log'],
     'defaultRoute'        => 'index',
     'controllerNamespace' => 'application\controllers',
-    'aliases'             => [
-        'rogeecn/TagEditor' => "@console/tmp-extensions/yii2-tag-editor/src",
-    ],
     'modules'             => [
         'manage' => [
             'class' => 'application\modules\manage\Module',

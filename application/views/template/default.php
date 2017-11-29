@@ -28,12 +28,25 @@ $articleUrl  = ['/page/index', 'id' => $model->slug];
     </div>
 
 
-    <div class="panel-body article-content"><?= $model->renderContent() ?></div>
+    <div class="panel-body article-content">
+        <?= $model->renderContent() ?>
+
+        <div class="alert alert-warning copyright">
+            <ul>
+                <li>
+                    版权声明：自由转载-非商用-非衍生-保持署名（<a href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh">创意共享3.0许可证</a>）
+                </li>
+                <li>
+                    发表日期：<?= date("Y-m-d", $model->created_at) ?>
+                </li>
+            </ul>
+        </div>
+    </div>
+
 
     <div class="panel-body">
-        <a class="badge">LifeStyle</a>
-        <a class="badge">LifeStyle</a>
-        <a class="badge">LifeStyle</a>
-        <a class="badge">LifeStyle</a>
+        <?php foreach ($model->getTagModel() as $tag): ?>
+            <?= Html::a($tag->name, ['/tag-list/index', 'id' => $tag->name], ['class' => 'badge']) ?>
+        <?php endforeach; ?>
     </div>
 </article>

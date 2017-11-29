@@ -65,7 +65,7 @@ class Post extends \common\base\ActiveRecord
     public function beforeSave($insert)
     {
         if (empty($this->slug)) {
-            $this->slug = $this->generateRandomString(16);
+            $this->slug = sprintf("%s-%s", $this->generateRandomString(16), time());
         }
 
         return parent::beforeSave($insert);

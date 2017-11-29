@@ -5,6 +5,11 @@ use yii\helpers\Html;
 ?>
 <div class="container">
     <div class="row">
+
+        <div class="col-md-9" id="main">
+            <?= $content; ?>
+        </div>
+
         <div class="col-md-3">
             <div id="profile">
                 <div class="panel panel-default text-center">
@@ -44,9 +49,6 @@ use yii\helpers\Html;
                     <!--                    </table>-->
                 </div>
             </div>
-        </div>
-        <div class="col-md-9" id="main">
-            <?= $content; ?>
         </div>
     </div>
 </div>
