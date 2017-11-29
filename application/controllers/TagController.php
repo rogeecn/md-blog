@@ -16,7 +16,7 @@ class TagController extends BaseController
             'query'      => $query,
             'pagination' => [
                 'class'           => Pagination::className(),
-                'defaultPageSize' => $this->pageItemCount * 100,
+                'defaultPageSize' => $this->pageItemCount * 20,
             ],
         ]);
 

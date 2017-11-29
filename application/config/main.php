@@ -49,6 +49,7 @@ return [
             'enablePrettyUrl' => TRUE,
             'showScriptName'  => FALSE,
             'rules'           => [
+                '/tag/<page:\d+>'                                            => 'tag/index',
                 '/tag'                                                       => 'tag/index',
                 '/page/<page:\d+>'                                           => 'index/index',
                 '/<year:\d{4}>/<month:\d{2}>/<day:\d{2}>/<id:[a-z|0-9|\-]+>' => 'page/index',

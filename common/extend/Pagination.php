@@ -6,6 +6,8 @@ use yii\web\Request;
 
 class Pagination extends \yii\data\Pagination
 {
+    public $pageSizeLimit = FALSE;
+
     public function createUrl($page, $pageSize = NULL, $absolute = FALSE)
     {
         $page     = (int)$page;
