@@ -9,9 +9,7 @@
     .copyright {
       margin-bottom: 0;
     }
-    h1 {
-      margin: 0;
-    }
+
     &.post-title {
       padding-top: 0;
     }
@@ -31,13 +29,13 @@
     .article-title {
       display: block;
       margin-bottom: 14px;
+      color: #24292e;
       font-size: 28px;
-      color: #565a5f;
       text-decoration: none;
       line-height: 1.3em;
     }
     a.article-title:visited {
-      color: #565a5f;
+      color: #24292e;
     }
 
     a.article-title:hover {

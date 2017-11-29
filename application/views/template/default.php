@@ -28,9 +28,10 @@ $articleUrl  = ['/page/index', 'id' => $model->slug];
     </div>
 
 
-    <div class="panel-body article-content">
+    <div class="panel-body  markdown-body">
         <?= $model->renderContent() ?>
-
+    </div>
+    <div class="panel-body">
         <div class="alert alert-warning copyright">
             <ul>
                 <li>

@@ -14,7 +14,7 @@ $articleUrl = [
 ];
 
 ?>
-<article class="panel panel-default post-list">
+<article class="panel panel-default">
     <div class="panel-body post-title">
         <h1>
             <?= Html::a($model->renderTitle(), $articleUrl, ['class' => 'article-title']) ?>
@@ -33,7 +33,7 @@ $articleUrl = [
         </div>
     </div>
 
-    <div class="panel-body"><?= $model->renderDescription() ?></div>
+    <div class="panel-body markdown-body"><?= $model->renderDescription() ?></div>
 
     <div class="panel-body">
         <?php foreach ($model->getTagModel() as $tag): ?>
