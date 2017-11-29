@@ -4,6 +4,7 @@ defined('YII_DEBUG') or define('YII_DEBUG', FALSE);
 defined('YII_ENV') or define('YII_ENV', 'prod');
 
 
+require(__DIR__ . 'SystemConst.php');
 require(__DIR__ . '/../../vendor/autoload.php');
 require(__DIR__ . '/../../vendor/yiisoft/yii2/Yii.php');
 require(__DIR__ . '/../../common/config/bootstrap.php');
