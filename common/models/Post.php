@@ -120,7 +120,15 @@ class Post extends \common\base\ActiveRecord
 
     public static function totalCount()
     {
-        return self::find()->count();
+        $condition = [
+            'status' => self::STATUS_NORMAL,
+            'type'   => self::TYPE_ARTICLE,
+        ];
+        if (!UserSession::isGuest()) {
+            return self::find()->count();
+        }
+
+        return self::find()->where($condition)->count();
     }
 
     public function renderTitle()
