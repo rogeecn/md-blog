@@ -9,9 +9,9 @@ trait TraitNeedLogin
     public function beforeAction($action)
     {
         if (UserSession::isGuest()) {
-            $this->redirect("/site/login");
+            UserSession::needLogin();
 
-            return false;
+            return FALSE;
         }
 
         return parent::beforeAction($action);

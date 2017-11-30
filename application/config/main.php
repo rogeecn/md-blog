@@ -26,9 +26,7 @@ return [
         'user'         => [
             'identityClass'   => 'common\models\User',
             'enableAutoLogin' => TRUE,
-            'loginUrl'        => [
-                'manage/login',
-            ],
+            'loginUrl'        => ['/manage/login'],
         ],
         'session'      => [
             'name' => 'sess_blog',
@@ -49,6 +47,7 @@ return [
             'enablePrettyUrl' => TRUE,
             'showScriptName'  => FALSE,
             'rules'           => [
+                '/search'                                                    => 'search/index',
                 '/tag/<page:\d+>'                                            => 'tag/index',
                 '/tag'                                                       => 'tag/index',
                 '/page/<page:\d+>'                                           => 'index/index',

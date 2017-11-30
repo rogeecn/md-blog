@@ -7,11 +7,19 @@
     ],
 ]);
 
-$leftMenus = [
+$leftMenus   = [
     ['label' => '首页', 'url' => ['/']],
     ['label' => '标签', 'url' => ['/tag']],
     ['label' => 'About', 'url' => ['/page/index', 'pid' => 'about-me']],
 ];
+$leftMenus[] = <<<_FORM
+<form class="navbar-form navbar-left" method="get" action="/search">
+    <div class="form-group">
+        <input type="text" name="keyword" class="form-control" placeholder="Search">
+    </div>
+</form>
+_FORM;
+
 
 if (\common\utils\UserSession::isGuest()) {
     $rightMenus[] = ['label' => '登录', 'url' => ['/manage/login']];
