@@ -14,6 +14,7 @@ class SearchController extends BaseController
             return $this->goBack();
         }
 
+
         $query = Post::find();
         $query->andFilterWhere(['like', 'title', $keyword]);
         $dataProvider = $this->getArticleListDataProvider($query);
