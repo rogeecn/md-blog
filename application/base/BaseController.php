@@ -2,6 +2,7 @@
 namespace application\base;
 
 use common\extend\Pagination;
+use common\extend\View;
 use common\models\Post;
 use common\utils\Request;
 use common\utils\UserSession;
@@ -14,12 +15,18 @@ class BaseController extends Controller
     public $layoutSnip    = "main";
     public $pageItemCount = 10;
 
-
     public function goBack($defaultUrl = NULL)
     {
         return parent::goBack(Request::input("__returnUrl"));
     }
 
+    /**
+     * @return \yii\base\View|\yii\web\View|View
+     */
+    public function getView()
+    {
+        return parent::getView();
+    }
 
 //    public function getRoute()
 //    {

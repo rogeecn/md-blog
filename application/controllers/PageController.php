@@ -28,6 +28,9 @@ class PageController extends BaseController
             }
         }
 
+        $this->getView()->setDescription($model->renderDescription());
+        $this->getView()->setKeywords($model->getTags());
+
         return $this->render("/template/" . $model->layout, [
             'model' => $model,
         ]);

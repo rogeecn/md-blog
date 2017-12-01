@@ -30,6 +30,9 @@ class Post extends \common\base\ActiveRecord
     const TYPE_ARTICLE = 0;
     const TYPE_PAGE    = 1;
 
+    private $htmlDescription;
+    private $tags;
+
     public static function tableName()
     {
         return 'post';
@@ -95,17 +98,22 @@ class Post extends \common\base\ActiveRecord
 
     public function getTagModel()
     {
-        $tagIDs   = PostTag::getCurrentTags($this->primaryKey);
-        $tagNames = Tag::find()->where(['id' => $tagIDs])->all();
+        if (empty($this->tags)) {
+            $tagIDs     = PostTag::getCurrentTags($this->primaryKey);
+            $this->tags = Tag::find()->where(['id' => $tagIDs])->all();
+        }
 
-        return $tagNames;
+        return $this->tags;
     }
 
     public function renderDescription()
     {
-        $parser = new GithubMarkdown();
+        if (empty($this->htmlDescription)) {
+            $parser                = new GithubMarkdown();
+            $this->htmlDescription = $parser->parse($this->description);
+        }
 
-        return $parser->parse($this->description);
+        return $this->htmlDescription;
     }
 
     public function renderContent()
