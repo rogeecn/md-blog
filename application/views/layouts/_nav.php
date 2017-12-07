@@ -10,6 +10,7 @@
 $leftMenus   = [
     ['label' => '首页', 'url' => ['/']],
     ['label' => '标签', 'url' => ['/tag']],
+    ['label' => '友情链接', 'url' => ['/friend-links']],
     ['label' => 'About', 'url' => ['/page/index', 'pid' => 'about-me']],
 ];
 $leftMenus[] = <<<_FORM
