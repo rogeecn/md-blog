@@ -17,7 +17,7 @@ AppAsset::register($this);
     <?= $this->commonMetaTags() ?>
     <?= Html::csrfMetaTags() ?>
     <?php $this->head() ?>
-    <script src="//msite.baidu.com/sdk/c.js?appid=1550504261879444"></script>
+<!--    <script src="//msite.baidu.com/sdk/c.js?appid=1550504261879444"></script>-->
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -25,9 +25,7 @@ AppAsset::register($this);
 <?php require sprintf("%s/%s.php", __DIR__, $snip); ?>
 <?= $this->render("_footer") ?>
 <?php $this->endBody() ?>
-<script>cambrian.render('head')</script>
+<!--<script>cambrian.render('head')</script>-->
 </body>
 </html>
 <?php $this->endPage() ?>
-
-
